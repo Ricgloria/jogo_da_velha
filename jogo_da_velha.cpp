@@ -218,7 +218,6 @@ void marcarjogada(){
     poenome();
     posicaoXY(3, 17); cout << jogador1.nome << " " << jogador1.pontos << endl;
     posicaoXY(3, 18); cout << jogador2.nome << " " << jogador2.pontos << endl;
-
 }
 
 void jogo(void){
