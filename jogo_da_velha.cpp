@@ -11,7 +11,7 @@ void posicaoXY(int x, int y) {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-// limpa tela e volta o cursor a posição original
+// limpa tela e volta o cursor a posiï¿½ï¿½o original
 void limpa(void) {
     HANDLE TELA;
     DWORD ESCRITA = 0;
@@ -90,7 +90,6 @@ void addpontos(void){
         jogador1.pontos++;
     else
         jogador2.pontos++;
-
 }
 
 bool verificador(void) {
@@ -124,7 +123,7 @@ bool verificador(void) {
     if (matriz[2][2] == 'O' and matriz[1][2] == 'O' and matriz[0][2] == 'O')
         return true;
 
-    //verticais
+    //diagonais
     if (matriz[0][0] == 'X' and matriz[1][1] == 'X' and matriz[2][2] == 'X')
         return true;
     if (matriz[2][0] == 'X' and matriz[1][1] == 'X' and matriz[0][2] == 'X')
