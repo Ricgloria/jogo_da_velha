@@ -198,6 +198,7 @@ void marcarjogada() {
             jogador1.chave = true;
         }
     }
+    tracajogo();
     poenome();
 }
 
