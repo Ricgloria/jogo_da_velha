@@ -98,6 +98,10 @@ void poenome(void) {
     cout << jogador1.nome << " jogue com <X>" << endl;
     posicaoXY(3, 15);
     cout << jogador2.nome << " jogue com <O>" << endl;
+    posicaoXY(3, 17);
+    cout << jogador1.nome << ": " << jogador1.pontos << endl;
+    posicaoXY(3, 18);
+    cout << jogador2.nome << ": " << jogador2.pontos << endl;
 }
 
 void addpontos(void) {
@@ -164,10 +168,6 @@ void marcarjogada() {
         cabecalho();
         tracajogo();
         poenome();
-        posicaoXY(3, 17);
-        cout << jogador1.nome << " " << jogador1.pontos << endl;
-        posicaoXY(3, 18);
-        cout << jogador2.nome << " " << jogador2.pontos << endl;
         if(jogador1.chave) {
             posicaoXY(3, 21);
             cout << "*** X joga agora ***";
@@ -202,10 +202,6 @@ void marcarjogada() {
     cabecalho();
     tracajogo();
     poenome();
-    posicaoXY(3, 17);
-    cout << jogador1.nome << " " << jogador1.pontos << endl;
-    posicaoXY(3, 18);
-    cout << jogador2.nome << " " << jogador2.pontos << endl;
 }
 
 void jogo(void) {
