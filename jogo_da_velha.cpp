@@ -128,7 +128,7 @@ bool verificador(char jogada) {
     if (matriz[2][2] == jogada and matriz[1][2] == jogada and matriz[0][2] == jogada)
         return true;
 
-    //verticais
+    //diagonais
     if (matriz[0][0] == jogada and matriz[1][1] == jogada and matriz[2][2] == jogada)
         return true;
     if (matriz[2][0] == jogada and matriz[1][1] == jogada and matriz[0][2] == jogada)
