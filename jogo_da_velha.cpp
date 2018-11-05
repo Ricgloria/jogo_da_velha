@@ -36,6 +36,7 @@ players jogador1, jogador2;
 
 void cabecalho(void) {
     cout << " Desenvolvido por Ricardo da Gloria" << endl;
+    cout << "              JOGO DA              " << endl;
     cout << " XX  XX XXXXX XX    XX   XX    XX " << endl;
     cout << " XX  XX XX    XX    XX   XX   X  X" << endl;
     cout << " XX  XX XXXXX XX    XXXXXXX  XX  XX" << endl;
@@ -106,46 +107,27 @@ void addpontos(void) {
         jogador2.pontos++;
 }
 
-bool verificador(void) {
+bool verificador(char jogada) {
     //verticais
-    if (matriz[0][0] == 'X' and matriz[0][1] == 'X' and matriz[0][2] == 'X')
+    if (matriz[0][0] == jogada and matriz[0][1] == jogada and matriz[0][2] == jogada)
         return true;
-    if (matriz[1][0] == 'X' and matriz[1][1] == 'X' and matriz[1][2] == 'X')
+    if (matriz[1][0] == jogada and matriz[1][1] == jogada and matriz[1][2] == jogada)
         return true;
-    if (matriz[2][0] == 'X' and matriz[2][1] == 'X' and matriz[2][2] == 'X')
-        return true;
-
-    if (matriz[0][0] == 'O' and matriz[0][1] == 'O' and matriz[0][2] == 'O')
-        return true;
-    if (matriz[1][0] == 'O' and matriz[1][1] == 'O' and matriz[1][2] == 'O')
-        return true;
-    if (matriz[2][0] == 'O' and matriz[2][1] == 'O' and matriz[2][2] == 'O')
+    if (matriz[2][0] == jogada and matriz[2][1] == jogada and matriz[2][2] == jogada)
         return true;
 
     //horizontais
-    if (matriz[2][0] == 'X' and matriz[1][0] == 'X' and matriz[0][0] == 'X')
+    if (matriz[2][0] == jogada and matriz[1][0] == jogada and matriz[0][0] == jogada)
         return true;
-    if (matriz[2][1] == 'X' and matriz[1][1] == 'X' and matriz[0][1] == 'X')
+    if (matriz[2][1] == jogada and matriz[1][1] == jogada and matriz[0][1] == jogada)
         return true;
-    if (matriz[2][2] == 'X' and matriz[1][2] == 'X' and matriz[0][2] == 'X')
-        return true;
-
-    if (matriz[2][0] == 'O' and matriz[1][0] == 'O' and matriz[0][0] == 'O')
-        return true;
-    if (matriz[2][1] == 'O' and matriz[1][1] == 'O' and matriz[0][1] == 'O')
-        return true;
-    if (matriz[2][2] == 'O' and matriz[1][2] == 'O' and matriz[0][2] == 'O')
+    if (matriz[2][2] == jogada and matriz[1][2] == jogada and matriz[0][2] == jogada)
         return true;
 
     //verticais
-    if (matriz[0][0] == 'X' and matriz[1][1] == 'X' and matriz[2][2] == 'X')
+    if (matriz[0][0] == jogada and matriz[1][1] == jogada and matriz[2][2] == jogada)
         return true;
-    if (matriz[2][0] == 'X' and matriz[1][1] == 'X' and matriz[0][2] == 'X')
-        return true;
-
-    if (matriz[0][0] == 'O' and matriz[1][1] == 'O' and matriz[2][2] == 'O')
-        return true;
-    if (matriz[2][0] == 'O' and matriz[1][1] == 'O' and matriz[0][2] == 'O')
+    if (matriz[2][0] == jogada and matriz[1][1] == jogada and matriz[0][2] == jogada)
         return true;
 
     return false;
@@ -200,7 +182,7 @@ void marcarjogada() {
         } while(jogada <= 0 or jogada >= 10);
         if(jogador1.chave) {
             porjogada(jogada, jogador1.jogada);
-            if(verificador()) {
+            if(verificador(jogador1.jogada)) {
                 addpontos();
                 vencedor = true;
             }
@@ -208,7 +190,7 @@ void marcarjogada() {
             jogador1.chave = false;
         } else {
             porjogada(jogada, jogador2.jogada);
-            if(verificador()) {
+            if(verificador(jogador2.jogada)) {
                 addpontos();
                 vencedor = true;
             }
