@@ -75,6 +75,7 @@ void instrucao(void) {
     cin.get();
 }
 
+// em caso de repetição do jogo esvazia casas ocupadas
 void esvazia(void) {
     for(int i = 0; i < 3; i++) {
         for(int j = 0; j < 3; j++)
@@ -111,6 +112,7 @@ void addpontos(void) {
         jogador2.pontos++;
 }
 
+//faz a verificação de vencedor
 bool verificador(char jogada) {
     //verticais
     if (matriz[0][0] == jogada and matriz[0][1] == jogada and matriz[0][2] == jogada)
@@ -137,6 +139,7 @@ bool verificador(char jogada) {
     return false;
 }
 
+//adiciona a jogada valida a alguma casa do jogo da velha
 void porjogada(int jogada, char jogadaJogador) {
     if(jogada == 1)
         matriz[0][0] = jogadaJogador;
@@ -158,7 +161,41 @@ void porjogada(int jogada, char jogadaJogador) {
         matriz[2][2] = jogadaJogador;
 }
 
-void marcarjogada() {
+//faz a verificação de entradas e se não estão tentando jogar em casas já ocupadas
+bool validajogada(int jogada) {
+    if(jogada > 0 and jogada < 10) {
+        if(jogada == 1)
+            if(matriz[0][0] == ' ')
+                return true;
+        if(jogada == 2)
+            if(matriz[0][1] == ' ')
+                return true;
+        if(jogada == 3)
+            if(matriz[0][2] == ' ')
+                return true;
+        if(jogada == 4)
+            if(matriz[1][0] == ' ')
+                return true;
+        if(jogada == 5)
+            if(matriz[1][1] == ' ')
+                return true;
+        if(jogada == 6)
+            if(matriz[1][2] == ' ')
+                return true;
+        if(jogada == 7)
+            if(matriz[2][0] == ' ')
+                return true;
+        if(jogada == 8)
+            if(matriz[2][1] == ' ')
+                return true;
+        if(jogada == 9)
+            if(matriz[2][2] == ' ')
+                return true;
+    }
+    return false;
+}
+
+void jogoDaVelha() {
     int jogada, contador = 0;
     bool vencedor = false;
 
@@ -178,8 +215,11 @@ void marcarjogada() {
         do {
             posicaoXY(3, 19);
             cout << "Jogada: ";
+            posicaoXY(11, 19);
+            cout << "   ";
+            posicaoXY(11, 19);
             cin >> jogada;
-        } while(jogada <= 0 or jogada >= 10);
+        } while(not(validajogada(jogada)));
         if(jogador1.chave) {
             porjogada(jogada, jogador1.jogada);
             if(verificador(jogador1.jogada)) {
@@ -206,7 +246,7 @@ void jogo(void) {
     char resp;
     jogadores();
     do {
-        marcarjogada();
+        jogoDaVelha();
         posicaoXY(3, 22);
         cout << "Continuar Jogando? <S> para sim, <N> para nao: ";
         cin >> resp;
