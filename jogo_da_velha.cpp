@@ -23,6 +23,10 @@ void limpa(void) {
     posicaoXY(0, 0);
 }
 
+void limpabuffer(void){
+    cin.ignore(100, '\n');
+}
+
 char matriz[3][3];
 
 struct players {
@@ -71,8 +75,9 @@ void instrucao(void) {
     posicaoXY(1, 14);
     cout << "Utilize o teclado numerico para fazer as jogadas. . .";
     posicaoXY(1, 15);
-    cout << "Aperte qualquer tecla para comecar!!!";
+    cout << "Aperte <ENTER> para comecar!!!";
     cin.get();
+    limpabuffer();
 }
 
 // em caso de repetição do jogo esvazia casas ocupadas
